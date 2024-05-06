@@ -23,6 +23,12 @@ jobs:
         with:
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/nestaway-backend:latest
+          build-args: |
+            PORT=${{ secrets.PORT }}
+            MONGOSERVERURL=${{ secrets.MONGOSERVERURL }}
+            DBNAME=${{ secrets.DBNAME }}
+            CookieSecret=${{ secrets.CookieSecret }}
+
       - name: ec2
         uses: appleboy/ssh-action@v1.0.3
         with:
@@ -30,7 +36,10 @@ jobs:
           username: ubuntu
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
-            docker pull ${{ secrets.DOCKERHUB_USERNAME }}/nestaway
-            docker stop nestaway || true
-            docker rm nestaway || true
-            docker run -d --name nestaway -p 80:5173 ${{ secrets.DOCKERHUB_USERNAME }}/nestaway
+            cd /opt/nestaway
+            docker compose stop
+            docker compose up -d
+            # docker pull ${{ secrets.DOCKERHUB_USERNAME }}/nestaway-backend
+            # docker stop nestaway || true
+            # docker rm nestaway || true
+            # docker run -d --name nestaway -p 80:5173 ${{ secrets.DOCKERHUB_USERNAME }}/nestaway
