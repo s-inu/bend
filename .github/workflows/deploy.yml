@@ -22,7 +22,7 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/nestaway-frontend:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/nestaway-backend:latest
       - name: ec2
         uses: appleboy/ssh-action@v1.0.3
         with:
