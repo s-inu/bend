@@ -31,6 +31,6 @@ RUN npm start
 # RUN npm install -g serve
 
 # # Command to run the app
-# CMD ["serve", "-s", "dist", "-l", "81"]
+CMD ["npm", "start"]
 
 # EXPOSE 81
