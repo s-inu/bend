@@ -25,7 +25,7 @@ RUN npm install
 COPY . .
 
 # Build the app
-RUN npm start
+# RUN npm start
 
 # # Install serve to run the application
 # RUN npm install -g serve
