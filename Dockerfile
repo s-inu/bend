@@ -33,4 +33,4 @@ COPY . .
 # # Command to run the app
 CMD ["npm", "start"]
 
-# EXPOSE 81
+EXPOSE 3000
