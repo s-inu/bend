@@ -11,7 +11,7 @@ const house1 = await housesCol.findOne();
 console.log(await housesCol.findOne());
 
 express.use(cors());
-express.use("*", async (req, res) => {
+express.use("/house", async (req, res) => {
   // let e;
   // try {
   //   await axios.get("https://google.com");
