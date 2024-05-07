@@ -6,9 +6,9 @@ import axios from "axios";
 
 const express = Express();
 
-// const housesCol = await houses();
-// const house1 = await housesCol.findOne();
-// console.log(await housesCol.findOne());
+const housesCol = await houses();
+const house1 = await housesCol.findOne();
+console.log(await housesCol.findOne());
 
 express.use(cors());
 express.use("*", async (req, res) => {
@@ -20,7 +20,7 @@ express.use("*", async (req, res) => {
   //   e = error;
   // }
 
-  res.json([process.env]);
+  res.json([process.env, house1]);
   // res.json([e, house1, process.env]);
 });
 
