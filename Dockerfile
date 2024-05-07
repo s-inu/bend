@@ -4,7 +4,7 @@ FROM node:20
 # Set the working directory
 WORKDIR /app
 
-ARG PORT
+ARG PORT=3000
 ENV PORT=${PORT}
 
 ARG MONGOSERVERURL
@@ -24,13 +24,7 @@ RUN npm install
 # Bundle app source
 COPY . .
 
-# Build the app
-# RUN npm start
-
-# # Install serve to run the application
-# RUN npm install -g serve
-
 # # Command to run the app
 CMD ["npm", "start"]
 
-EXPOSE 3000
+EXPOSE ${PORT}

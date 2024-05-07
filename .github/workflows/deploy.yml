@@ -38,7 +38,7 @@ jobs:
           script: |
             cd /opt/nestaway
             docker compose stop
-            docker compose up -d
+            docker compose up -d --pull always
             # docker pull ${{ secrets.DOCKERHUB_USERNAME }}/nestaway-backend
             # docker stop nestaway || true
             # docker rm nestaway || true
