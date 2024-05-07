@@ -12,15 +12,16 @@ console.log(await housesCol.findOne());
 
 express.use(cors());
 express.use("*", async (req, res) => {
-  let e;
-  try {
-    await axios.get("https://google.com");
-    await axios.get("http://frontend:80");
-  } catch (error) {
-    e = error;
-  }
+  // let e;
+  // try {
+  //   await axios.get("https://google.com");
+  //   await axios.get("http://frontend:80");
+  // } catch (error) {
+  //   e = error;
+  // }
 
-  res.json([e, house1, process.env]);
+  res.json([house1, process.env]);
+  // res.json([e, house1, process.env]);
 });
 
 express.listen(3000, () => {
